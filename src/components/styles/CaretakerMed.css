@@ -20,3 +20,9 @@
     font-weight: bold;
     cursor: pointer;
 }
+.action-width{
+    width: 290px !important;
+}
+.action-width1{
+    width: 71rem;
+}

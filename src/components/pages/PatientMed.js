@@ -15,9 +15,9 @@ const PatientMed = () => {
   }
  }
   return (
-    <Container className='p-4'>
-        <Row>
-            <Col md={8} >
+    <Container className='px-5 py-3'>
+        <Row className='d-flex- justify-content-center align-items-center'>
+            <Col md={7} >
             <Card className='p-4'>
             <div className='d-flex flex-row'>
             <FaCalendar size={30} className='text-primary mx-2'/>

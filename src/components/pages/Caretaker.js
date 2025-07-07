@@ -9,9 +9,9 @@ const Caretaker = () => {
   return (
     <Container fluid className='p-0 patient-container'>
       <Navigationbar />
-      <Container fluid >
+      <Container fluid>
         <Row className='d-flex justify-content-center align-items-center'>
-          <Col md={9} className='mt-5 py-2'>
+          <Col md={9} className='mt-5 p-2'>
             <Card className='p-5 welcome-card'>
               <div className='d-flex flex-row text-light'>
                 <FaUsers className='fs-2 user-styles text-light' />

@@ -7,9 +7,9 @@ const CaretakerMed = () => {
 
     return (
         <Container className='px-4 '>
-            <Row >
-                <Col md={6} >
-                    <Card className='p-4 '>
+            <Row className='d-flex- justify-content-center align-items-center'>
+                <Col md={5} >
+                    <Card className='p-4'>
                         <div className='d-flex flex-row'>
                             <FaCalendar size={30} className='text-primary mx-2' />
                             <h4 className=''>Today's Status</h4>
@@ -42,9 +42,9 @@ const CaretakerMed = () => {
                     </Card>
                 </Col>
             </Row>
-            <Row className='my-3'>
-                <Col md={12}>
-                    <Card className='p-4 '>
+            <Row className='my-3 '>
+                <Col md={12} className='d-flex justify-content-center align-items-center'>
+                    <Card className='p-4 action-width1'>
                         <h4>Monthly Adherence Progress</h4>
                         <div className='d-flex flex-row justify-content-between'>
                         <p>Overall Progress</p>
