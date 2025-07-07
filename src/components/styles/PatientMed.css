@@ -1,0 +1,17 @@
+.number-list {
+   padding: 5px 12px;
+   border-radius: 150px;
+   background-color: rgba(5, 5, 175, 0.2);
+   text-align: center;
+}
+
+.list-1,
+.list-2,
+.list-3 {
+   list-style: none;
+}
+
+.progress-bar{
+   width: 85%;
+}
+ 

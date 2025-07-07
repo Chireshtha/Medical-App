@@ -1,0 +1,16 @@
+.navbar-container {
+    height: 80px;
+    width: 100%;
+}
+
+.logo-design {
+    padding: 8px 10px;
+    background: linear-gradient(45deg, rgba(144, 72, 207, 1) 35%, rgba(16, 222, 139, 1) 100%);
+    text-align: center;
+    border-radius: 10px;
+}
+@media (max-width: 768px){
+  .navbar-container{
+    height: 200px;
+  }  
+}

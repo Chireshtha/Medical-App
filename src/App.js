@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import { createContext, useState } from 'react';
 import './App.css';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
+// import Navigationbar from './components/layout/Navigationbar';
+// import Footer from './components/layout/Footer';
 
+
+
+export const dashboardContext = createContext();
 function App() {
+  const[medicare, setMedicare] = useState('/patient')
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <dashboardContext.Provider value={{medicare, setMedicare}}>
+      <Outlet />
+      <ScrollRestoration />
+    </dashboardContext.Provider>
   );
 }
 

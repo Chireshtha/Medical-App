@@ -1,0 +1,24 @@
+.patient-container {
+    background-color: #f1f2f6;
+}
+
+.welcome-card {
+    background: linear-gradient(342deg, rgba(16, 222, 139, 1) 35%, rgba(144, 72, 207, 1) 100%);
+    border-radius: 20px !important;
+}
+
+.user-styles {
+    background-color: rgb(230, 230, 237, 0.4);
+    width: 70px;
+    height: 70px;
+    padding: 20px 20px;
+    border-radius: 10px !important;
+}
+
+.cards-style {
+    background-color: rgb(230, 230, 237, 0.2) !important;
+    border-radius: 10px !important;
+    color: #FFFFFF !important;
+    font-size: 20px;
+}
+ 

@@ -1,0 +1,22 @@
+.action-content1:hover,
+.action-content2:hover,
+.action-content3:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.active-tab {
+    border: 2px solid #198754;
+    background-color: #e9f7ef;
+    color: #198754;
+    font-weight: bold;
+    cursor: pointer;
+}
