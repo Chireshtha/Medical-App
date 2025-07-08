@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+// import React, { useContext } from 'react'
 import Navigationbar from '../layout/Navigationbar'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import '../styles/Patient.css'
 import { FaUser } from 'react-icons/fa'
 import PatientMed from './PatientMed'
-import { dashboardContext } from '../../App'
+// import { dashboardContext } from '../../App'
 
 const Patient = () => {
-    const {markedDate, setMarkedDate} = useContext(dashboardContext);
+    // const {markedDate, setMarkedDate} = useContext(dashboardContext);
   
   return (
     <Container fluid className='p-0 patient-container'>
