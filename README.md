@@ -6,7 +6,7 @@ A responsive React-based application that helps patients stay on track with thei
 
 🌐 [meds-check.netlify.app](https://meds-check.netlify.app)
 
-## 💻 Tech Stack
+## 💻 Tech Stack 
 
 - **React JS**
 - **React Router DOM**
