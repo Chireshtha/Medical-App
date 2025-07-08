@@ -9,10 +9,12 @@ import { Outlet, ScrollRestoration } from 'react-router-dom';
 export const dashboardContext = createContext();
 function App() {
   const[medicare, setMedicare] = useState('/patient')
+  const [markedDate, setMarkedDate] = useState([])
+
   
 
   return (
-    <dashboardContext.Provider value={{medicare, setMedicare}}>
+    <dashboardContext.Provider value={{medicare, setMedicare, markedDate, setMarkedDate}}>
       <Outlet />
       <ScrollRestoration />
     </dashboardContext.Provider>

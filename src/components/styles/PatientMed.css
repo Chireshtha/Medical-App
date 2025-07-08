@@ -11,7 +11,54 @@
    list-style: none;
 }
 
-.progress-bar{
+.progress-bar {
    width: 85%;
 }
+
+.react-calendar__tile.taken-med {
+   background: rgba(0, 200, 0, 0.2);
+   position: relative;
+   border: 2px solid green;
+   color: green;
+}
+
+.react-calendar__tile.taken-med::after {
+   content: '✅';
+   position: absolute;
+   top: 0px !important;
+   right: 0px !important;
+   font-weight: bold;
+   font-size: 20px;
+   left: 25px;
+}
+.react-calendar__tile.today-med {
+    position: relative;
+    background-color: #dfe8f2;
+    color: blue;
  
+}
+
+.react-calendar__tile.today-med::after {
+   content: '🔵';
+   position: absolute;
+   top: 0px !important;
+   right: 0px !important;
+   font-weight: bold;
+   font-size: 20px;
+   left: 25px;
+}
+.react-calendar__tile.missed-med {
+  background: rgba(0, 123, 255, 0.1);
+   position: relative;
+   color: black;
+}
+
+.react-calendar__tile.missed-med::after {
+   content: '🔴';
+   position: absolute;
+   top: 0px !important;
+   right: 0px !important;
+   font-weight: bold;
+   font-size: 20px;
+   left: 25px;
+}
