@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import { FaBell, FaCalendar, FaCalendarAlt, FaClock, FaEnvelope } from 'react-icons/fa'
 import '../styles/CaretakerMed.css'
-
+import { dashboardContext } from '../../App'
+ 
 const CaretakerMed = () => {
-
+const {setActiveTab} = useContext(dashboardContext)
+    
     return (
         <Container className='px-4 '>
             <Row className='d-flex- justify-content-center align-items-center'>
@@ -29,13 +31,13 @@ const CaretakerMed = () => {
                         <div className='px-4 '>
                             <Row className='d-flex flex-column'>
                                 <Col md={4} className='action-content1 w-50'>
-                                    <p><FaEnvelope /> Send Reminder Email</p>
+                                    <p onClick={()=>{alert("Reminder email sent to Eleanor Thompson")}}><FaEnvelope /> Send Reminder Email</p>
                                 </Col>
                                 <Col md={4} className='action-content2 w-50'>
-                                    <p><FaBell /> Configure Notifications</p>
+                                    <p onClick={()=>{setActiveTab('notification')}}><FaBell /> Configure Notifications</p>
                                 </Col>
                                 <Col md={4} className='action-content3 w-50'>
-                                    <p><FaCalendarAlt /> View Full Calendar</p>
+                                    <p onClick={()=>{setActiveTab('calender')}}><FaCalendarAlt /> View Full Calendar</p>
                                 </Col>
                             </Row>
                         </div>

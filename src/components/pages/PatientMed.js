@@ -2,14 +2,12 @@ import React, { useContext, useState } from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 import { FaCalendar, FaCamera, FaCheckCircle, FaClock, FaImage } from 'react-icons/fa'
 import '../styles/PatientMed.css'
-import 'react-calendar/dist/Calendar.css'
-import { Calendar } from 'react-calendar'
 import { dashboardContext } from '../../App'
+import PubMedCalender from './PubMedCalender'
 
 const PatientMed = () => {
-  const [date, setDate] = useState(new Date())
   const [takenMed, setTakenMed] = useState(false)
-  const {markedDate, setMarkedDate} = useContext(dashboardContext);
+  const { date, setMarkedDate, isSameDay } = useContext(dashboardContext);
 
   //File handling
   const handleFileChange = (e) => {
@@ -18,33 +16,7 @@ const PatientMed = () => {
       console.log('File Selected:', file.name);
     }
   }
-  const isSameDay = (d1, d2) =>
-    d1.getDate() === d2.getDate() &&
-    d1.getMonth() === d2.getMonth() &&
-    d1.getYear() === d2.getYear();
 
-  //Handle Calender Tile marking
-  const tileMarking = ({ date: calendarDate, view }) => {
-    if (view !== 'month')
-      return '';
-    const today = new Date();
-
-    //Marked as taken
-    if (markedDate.some((marked) => isSameDay(marked, calendarDate))) {
-      return 'taken-med';
-    }
-
-    //Today
-    if (isSameDay(calendarDate, today)) {
-      return 'today-med';
-    }
-
-    //Missed as taken
-    if (calendarDate < today) {
-      return 'missed-med';
-    }
-    return ''; //Future dates no marking
-  }
 
   return (
     <Container className='px-5 py-3'>
@@ -77,8 +49,8 @@ const PatientMed = () => {
                       <p className='mx-auto my-auto fw-semibold'><FaCamera size={23} /> Take Photo</p>
                     </Card>
                     <input id='fileUpload' type='file' accept='image/*' style={{ display: 'none' }} onChange={handleFileChange} />
-                    
-                    <Button className='w-100 bg-success fw-bold' disabled={!isSameDay(date, new Date())} onClick={() => { setTakenMed(true); setMarkedDate((prev) => [...prev, new Date(date)]) }}><FaCheckCircle size={24} className='mx-2' />{isSameDay(date, new Date())? 'Mark as Taken':'Cannot mark future dates'}  </Button> 
+
+                    <Button className='w-100 bg-success fw-bold' disabled={!isSameDay(date, new Date())} onClick={() => { setTakenMed(true); setMarkedDate((prev) => [...prev, new Date(date)]) }}><FaCheckCircle size={24} className='mx-2' />{isSameDay(date, new Date()) ? 'Mark as Taken' : 'Cannot mark future dates'}  </Button>
                   </Card>
                 </Col>
               </Row>
@@ -111,16 +83,10 @@ const PatientMed = () => {
         <Col md={4}>
           <Card className='d-flex justify-content-center align-items-center'>
             <h4 className='text-center mt-5'>Medication Calendar</h4>
-            <Calendar className='my-4 text-dark' onChange={setDate} value={date} tileClassName={tileMarking} />
-            <ul className='d-flex flex-column w-100'>
-              <li className='list-1 my-3'>🟢 Medication taken</li>
-              <li className='list-2'>🔴 Missed medication</li>
-              <li className='list-3 my-3'>🔵 Today</li>
-            </ul>
+            <PubMedCalender />
           </Card>
         </Col>
       </Row>
-
     </Container>
   )
 }

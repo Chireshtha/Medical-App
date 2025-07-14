@@ -1,0 +1,8 @@
+.border-style, .border-style1{
+    border: 2px solid rgb(227, 215, 215);
+    border-radius: 50px;
+    font-size: small;
+  }
+  .border-style1{
+    background-color: rgb(246, 246, 244);
+  }
