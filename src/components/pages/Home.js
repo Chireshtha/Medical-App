@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 import health from '../Images/health.jpeg'
 import '../styles/Home.css'
 import { FaUser, FaUsers } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { dashboardContext } from '../../App'
 
 
 const Home = () => {
+  const {handleLogout} = useContext(dashboardContext);
   return (
     <Container fluid className='home-container d-flex flex-column justify-content-center align-items-center'>
+      <Row className='w-100'>
+        <Col md={12} className='text-end'>
+        <button onClick={handleLogout} className='bg-primary text-light px-4 py-2 rounded-3 border-0'>Signout</button>
+        </Col>
+      </Row>
       <Row>
         <Col md={12} className='d-flex flex-column justify-content-center align-items-center py-4'>
           <img src={health} alt='healthy heart' className='fluid img-style' />
@@ -18,10 +25,10 @@ const Home = () => {
         </Col>
       </Row>
 
-      <Container fluid className='home-container d-flex flex-column justify-content-center align-items-center'>
+      <Container className='home-container d-flex flex-column justify-content-center align-items-center'>
         <Row className='d-flex flex-row justify-content-center align-items-center'>
           <Col md={5} >
-            <Card fluid className='p-4 px-5 patient-card'>
+            <Card className='p-4 px-5 patient-card'>
               <div className='d-flex flex-column justify-content-center align-items-center'><FaUser className='fauser-style ' />
                 <h4 className='py-3 text-primary'>I'm a Patient</h4>
                 <p className='text-muted'>Track your medication schedule and maintain your health records</p>
@@ -36,7 +43,7 @@ const Home = () => {
             </Card>
           </Col>
           <Col md={5}>
-              <Card fluid className='p-4 px-5 caretaker-card'>
+              <Card className='p-4 px-5 caretaker-card'>
                 <div className='d-flex flex-column justify-content-center align-items-center'><FaUsers className='fausers-style' />
                   <h4 className='py-3 text-success'>I'm a Caretaker</h4>
                   <p className='text-muted'>Monitor and support your loved one's medication adherence</p>

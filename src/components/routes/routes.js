@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Patient from "../pages/Patient";
 import Caretaker from "../pages/Caretaker";
 import Navigationbar from "../layout/Navigationbar";
+import Login from "../Authenticate/Login";
 
 
  const routes = createBrowserRouter([
@@ -13,7 +14,8 @@ import Navigationbar from "../layout/Navigationbar";
         errorElement:<ErrorPage />,
         children: [
             {path:'/navbar', element:<Navigationbar />},
-            {path:'/', element:<Home />},
+            {path:'/', element:<Login />},
+            {path:'/home', element:<Home />},
             {path:'/patient', element:<Patient />},
             {path:'/caretaker', element: <Caretaker />}
          ]

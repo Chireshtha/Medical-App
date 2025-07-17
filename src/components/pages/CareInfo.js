@@ -8,8 +8,8 @@ import '../styles/CaretakerMed.css'
 import { dashboardContext } from '../../App';
 
 
-const CareInfo = () => {
-    const {activeTab, setActiveTab} = useContext(dashboardContext)
+const CareInfo = ({medInfo}) => {
+     const {activeTab, setActiveTab} = useContext(dashboardContext)
      return (
         <Container>
             <Row className='py-3 d-flex justify-content-center align-items-center text-center'>
@@ -35,7 +35,7 @@ const CareInfo = () => {
                 </Col>
             </Row>
             <div>
-                {activeTab === 'overview' && <CaretakerMed />}
+                {activeTab === 'overview' && <CaretakerMed medInfo={medInfo}/>}
                 {activeTab === 'activity' && <Activity />}
                 {activeTab === 'calender' && <Calender />}
                 {activeTab === 'notification' && <Notification />}

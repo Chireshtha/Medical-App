@@ -1,0 +1,10 @@
+.login-background {
+  background: url('../Images/med-bg.webp') no-repeat center center;
+  background-size: cover;
+}
+
+.login-card {
+  background-color: rgba(255, 255, 255, 0.85);  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+}

@@ -41,6 +41,11 @@ const Caretaker = () => {
       }
 
       const missedThisMonth = daysPassedThisMonth - takenThisMonth;
+      const getDaysInMonth = (year, month) => {
+        return new Date(year, month + 1, 0).getDate();
+      }
+      const daysInCurrentMonth = getDaysInMonth(now.getFullYear(), now.getMonth());
+      const remainingDays = daysInCurrentMonth - daysPassedThisMonth;
 
       const getTakenThisWeek = () => {
         const today = new Date();
@@ -53,8 +58,6 @@ const Caretaker = () => {
       ).length;
       return takenThisWeek;
       }
-
-      
 
   return (
     <Container fluid className='p-0 patient-container'>
@@ -102,7 +105,7 @@ const Caretaker = () => {
         
       </Container>
 
-      <CareInfo />
+      <CareInfo medInfo = {{missedThisMonth, remainingDays, takenThisMonth, adherenceRate}}/>
     </Container>
   )
 }

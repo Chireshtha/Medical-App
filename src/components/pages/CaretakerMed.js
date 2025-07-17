@@ -3,10 +3,11 @@ import { Card, Col, Container, Row } from 'react-bootstrap'
 import { FaBell, FaCalendar, FaCalendarAlt, FaClock, FaEnvelope } from 'react-icons/fa'
 import '../styles/CaretakerMed.css'
 import { dashboardContext } from '../../App'
- 
-const CaretakerMed = () => {
-const {setActiveTab} = useContext(dashboardContext)
-    
+
+const CaretakerMed = ({ medInfo }) => {
+    const { setActiveTab } = useContext(dashboardContext);
+    const { missedThisMonth, remainingDays, takenThisMonth, adherenceRate } = medInfo;
+
     return (
         <Container className='px-4 '>
             <Row className='d-flex- justify-content-center align-items-center'>
@@ -31,13 +32,13 @@ const {setActiveTab} = useContext(dashboardContext)
                         <div className='px-4 '>
                             <Row className='d-flex flex-column'>
                                 <Col md={4} className='action-content1 w-50'>
-                                    <p onClick={()=>{alert("Reminder email sent to Eleanor Thompson")}}><FaEnvelope /> Send Reminder Email</p>
+                                    <p onClick={() => { alert("Reminder email sent to Eleanor Thompson") }}><FaEnvelope /> Send Reminder Email</p>
                                 </Col>
                                 <Col md={4} className='action-content2 w-50'>
-                                    <p onClick={()=>{setActiveTab('notification')}}><FaBell /> Configure Notifications</p>
+                                    <p onClick={() => { setActiveTab('notification') }}><FaBell /> Configure Notifications</p>
                                 </Col>
                                 <Col md={4} className='action-content3 w-50'>
-                                    <p onClick={()=>{setActiveTab('calender')}}><FaCalendarAlt /> View Full Calendar</p>
+                                    <p onClick={() => { setActiveTab('calender') }}><FaCalendarAlt /> View Full Calendar</p>
                                 </Col>
                             </Row>
                         </div>
@@ -49,12 +50,17 @@ const {setActiveTab} = useContext(dashboardContext)
                     <Card className='p-4 action-width1'>
                         <h4>Monthly Adherence Progress</h4>
                         <div className='d-flex flex-row justify-content-between'>
-                        <p>Overall Progress</p>
-                        <p >85%</p></div>
-                        <div className='progress' role='progressbar' aria-valuenow='85' aria-valuemin='0' aria-valuemax='100'>
-                            <div className='progress-bar' ></div>
+                            <p>Overall Progress</p>
+                            <p >{adherenceRate}%</p></div>
+                        <div className='progress' role='progressbar' aria-valuenow={adherenceRate} aria-valuemin='0' aria-valuemax='100'>
+                            <div className='progress-bar' style={{ width: `${adherenceRate}%` }} ></div>
                         </div>
-                    
+                        <div className='d-flex flex-row justify-content-between align-items-center'>
+                            <p>{takenThisMonth} Taken</p>
+                            <p>{missedThisMonth} Missed</p>
+                            <p>{remainingDays} Remaining</p>
+                        </div>
+
                     </Card>
                 </Col>
             </Row>
