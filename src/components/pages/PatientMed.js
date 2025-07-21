@@ -4,6 +4,7 @@ import { FaCalendar, FaCamera, FaCheckCircle, FaClock, FaImage } from 'react-ico
 import '../styles/PatientMed.css'
 import { dashboardContext } from '../../App'
 import PubMedCalender from './PubMedCalender'
+import dayjs from 'dayjs'
 
 const PatientMed = () => {
   const [takenMed, setTakenMed] = useState(false)
@@ -50,7 +51,23 @@ const PatientMed = () => {
                     </Card>
                     <input id='fileUpload' type='file' accept='image/*' style={{ display: 'none' }} onChange={handleFileChange} />
 
-                    <Button className='w-100 bg-success fw-bold' disabled={!isSameDay(date, new Date())} onClick={() => { setTakenMed(true); setMarkedDate((prev) => [...prev, new Date(date)]) }}><FaCheckCircle size={24} className='mx-2' />{isSameDay(date, new Date()) ? 'Mark as Taken' : 'Cannot mark future dates'}  </Button>
+                    <Button className='w-100 bg-success fw-bold' disabled={!isSameDay(date, new Date())} onClick={() => {
+                      setTakenMed(true); setMarkedDate((prev) => [...prev, new Date(date)])
+                      const today = dayjs(date).format('dddd, MMMM D');
+                      const existing = JSON.parse(localStorage.getItem('medicationActivity')) || [];
+
+                      const filtered = existing.filter(entry => entry.date !== today);
+                      const activity = {
+                        date: today,
+                        time: dayjs().format('h:mm A'),
+                        hasPhoto: false,
+                        status: 'Completed'
+                      };
+
+
+                      const updated = [activity, ...filtered];
+                      localStorage.setItem('medicationActivity', JSON.stringify(updated));
+                    }}><FaCheckCircle size={24} className='mx-2' />{isSameDay(date, new Date()) ? 'Mark as Taken' : 'Cannot mark future dates'}  </Button>
                   </Card>
                 </Col>
               </Row>
