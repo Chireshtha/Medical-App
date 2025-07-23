@@ -56,9 +56,9 @@ const CaretakerMed = ({ medInfo }) => {
                             <div className='progress-bar' style={{ width: `${adherenceRate}%` }} ></div>
                         </div>
                         <div className='d-flex flex-row justify-content-between align-items-center'>
-                            <p>{takenThisMonth} Taken</p>
-                            <p>{missedThisMonth} Missed</p>
-                            <p>{remainingDays} Remaining</p>
+                            <p className='text-success'>{takenThisMonth} Taken</p>
+                            <p className='text-danger'>{missedThisMonth} Missed</p>
+                            <p className='text-primary'>{remainingDays} Remaining</p>
                         </div>
 
                     </Card>
